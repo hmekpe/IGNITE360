@@ -95,7 +95,10 @@ export default function Navbar() {
                 <Link href="/apply" className="btn-primary w-full">
                   Apply now
                 </Link>
-                <Link href="/programs" className="btn-tertiary w-full border-white/20 bg-white/8 text-white hover:bg-white/12 hover:text-white">
+                <Link
+                  href="/programs"
+                  className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white hover:bg-white/12 active:opacity-80"
+                >
                   Browse programs
                 </Link>
               </div>
@@ -110,7 +113,7 @@ export default function Navbar() {
                     href={item.href}
                     aria-current={active ? 'page' : undefined}
                     className={`rounded-2xl px-4 py-4 text-base transition ${
-                      active ? 'bg-white/10 font-semibold text-white' : 'text-white/82 hover:bg-white/5'
+                      active ? 'bg-white/10 font-semibold text-white' : 'text-white hover:bg-white/5'
                     }`}
                   >
                     {item.label}

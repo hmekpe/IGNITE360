@@ -6,12 +6,20 @@ import UpdatesFeed from '@/components/site/UpdatesFeed';
 import TeamGrid from '@/components/site/TeamGrid';
 import Reveal from '@/components/site/Reveal';
 
+// Enable static generation for better performance
+export const revalidate = 300; // Revalidate every 5 minutes
+
 export default async function HomePage() {
-  const [programs, posts, team] = await Promise.all([
+  // Use Promise.allSettled for better error handling and faster loading
+  const [programsResult, postsResult, teamResult] = await Promise.allSettled([
     getPrograms(),
     getPosts(),
     getTeam(),
   ]);
+
+  const programs = programsResult.status === 'fulfilled' ? programsResult.value : [];
+  const posts = postsResult.status === 'fulfilled' ? postsResult.value : [];
+  const team = teamResult.status === 'fulfilled' ? teamResult.value : [];
 
   const featuredPrograms = programs.filter((item) => item.featured).slice(0, 6);
   const featuredPosts = posts.slice(0, 3);

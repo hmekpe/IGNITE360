@@ -1,6 +1,7 @@
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat';
+import PerformanceOptimizer from '@/components/ui/PerformanceOptimizer';
 import '@/styles/globals.css';
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-[var(--canvas)] text-[var(--text)]">
+        <PerformanceOptimizer />
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>

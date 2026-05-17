@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 2592000,
@@ -13,21 +17,30 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['@radix-ui/react-dialog'],
-  },
-  compress: true,
-  generateEtags: true,
-  output: 'standalone',
-  headers: async () => [
-    {
-      source: '/(.*)',
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'public, max-age=31536000, immutable',
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
         },
-      ],
+      },
     },
-  ],
+    optimizeCss: true,
+  },
+  swcMinify: true,
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+  // Development optimizations
+  webpack: (config, { dev }) => {
+    if (dev) {
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;
