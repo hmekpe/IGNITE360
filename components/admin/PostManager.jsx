@@ -174,15 +174,15 @@ export default function PostManager({ initialPosts }) {
           {filteredPosts.map((post) => (
             <div key={post.id} className="surface-card p-5">
               <div className="flex flex-col gap-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                  <div className="flex items-start gap-3 min-w-0 flex-1">
                     <input
                       type="checkbox"
                       checked={selection.includes(post.id)}
                       onChange={() => toggleSelection(post.id)}
                       className="mt-2 h-5 w-5"
                     />
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="badge">{post.category}</span>
                         {post.featured ? <span className="badge">Featured</span> : null}
@@ -190,11 +190,11 @@ export default function PostManager({ initialPosts }) {
                           {post.published ? 'Published' : 'Draft'}
                         </span>
                       </div>
-                      <h2 className="mt-3 text-2xl text-[var(--navy)]">{post.title}</h2>
+                      <h2 className="mt-3 text-2xl text-[var(--navy)] break-words">{post.title}</h2>
                       <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">{post.excerpt}</p>
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 sm:shrink-0">
                     <button type="button" onClick={() => openEdit(post)} className="action-chip">Edit</button>
                     <button type="button" onClick={() => remove(post.id)} className="action-chip text-rose-700">Delete</button>
                   </div>

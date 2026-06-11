@@ -62,12 +62,12 @@ export default function GalleryExperience({ items }) {
       {active ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(9,18,36,0.72)] p-4">
           <div className="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-[2rem] bg-white p-6">
-            <div className="flex items-center justify-between gap-4">
-              <div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+              <div className="min-w-0 flex-1">
                 <span className="badge">{active.category}</span>
-                <h3 className="mt-3 text-3xl text-[var(--navy)]">{active.title}</h3>
+                <h3 className="mt-3 text-3xl text-[var(--navy)] break-words">{active.title}</h3>
               </div>
-              <button type="button" onClick={() => setActive(null)} className="action-chip">
+              <button type="button" onClick={() => setActive(null)} className="action-chip sm:shrink-0">
                 Close
               </button>
             </div>
@@ -76,7 +76,7 @@ export default function GalleryExperience({ items }) {
                 <iframe
                   src={active.videoUrl}
                   title={active.title}
-                  className="h-[420px] w-full"
+                  className="w-full aspect-video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />

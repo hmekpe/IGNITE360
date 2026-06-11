@@ -167,24 +167,24 @@ export default function TeamManager({ initialTeam }) {
           {filteredMembers.map((member) => (
             <div key={member.id} className="surface-card p-5">
               <div className="flex flex-col gap-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                  <div className="flex items-start gap-3 min-w-0 flex-1">
                     <input
                       type="checkbox"
                       checked={selection.includes(member.id)}
                       onChange={() => toggleSelection(member.id)}
                       className="mt-2 h-5 w-5"
                     />
-                    <div className="grid gap-4 md:grid-cols-[92px_1fr]">
+                    <div className="grid gap-4 md:grid-cols-[92px_1fr] min-w-0 flex-1">
                       <SmartImage image={member.image} alt={member.name} wrapperClassName="rounded-[1.25rem]" className="h-full w-full" aspectRatio="1 / 1" />
-                      <div>
-                        <h2 className="text-2xl text-[var(--navy)]">{member.name}</h2>
+                      <div className="min-w-0">
+                        <h2 className="text-2xl text-[var(--navy)] break-words">{member.name}</h2>
                         <p className="mt-1 font-semibold text-[var(--gold-dark)]">{member.role}</p>
                         <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">{member.shortBio}</p>
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 sm:shrink-0">
                     <button type="button" onClick={() => openEdit(member)} className="action-chip">Edit</button>
                     <button type="button" onClick={() => remove(member.id)} className="action-chip text-rose-700">Delete</button>
                   </div>

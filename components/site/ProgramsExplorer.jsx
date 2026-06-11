@@ -134,15 +134,15 @@ export default function ProgramsExplorer({ programs, compact = false }) {
           <div className="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-[2rem] bg-white p-6 md:p-8">
             <div className="flex flex-col gap-6 md:grid md:grid-cols-[0.95fr_1.05fr]">
               <div className="space-y-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                  <div className="min-w-0 flex-1">
                     <span className="badge">{activeProgram.category}</span>
-                    <h3 className="mt-4 text-3xl text-[var(--navy)]">{activeProgram.title}</h3>
+                    <h3 className="mt-4 text-3xl text-[var(--navy)] break-words">{activeProgram.title}</h3>
                   </div>
                   <button
                     type="button"
                     onClick={() => setActiveProgram(null)}
-                    className="action-chip"
+                    className="action-chip sm:shrink-0"
                   >
                     Close
                   </button>

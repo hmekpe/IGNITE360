@@ -18,7 +18,7 @@ export default function AdminSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="surface-card sticky top-28 overflow-hidden bg-[var(--navy)] text-white">
+    <aside className="surface-card lg:sticky lg:top-28 overflow-hidden bg-[var(--navy)] text-white">
       <div className="border-b border-white/10 p-6">
         <div className="flex items-center gap-3">
           <Image

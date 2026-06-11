@@ -95,7 +95,7 @@ export default function ApplicationManager({ initialApplications }) {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-[1.1fr_repeat(4,minmax(0,1fr))]">
+        <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1fr)_repeat(4,minmax(0,1fr))]">
           <label className="field-shell">
             <span className="field-label">Search applications</span>
             <input
@@ -106,12 +106,14 @@ export default function ApplicationManager({ initialApplications }) {
             />
           </label>
 
-          {statusOptions.map((item) => (
-            <div key={item} className="rounded-[1.1rem] border border-[var(--border)] bg-[var(--sand)] px-4 py-3">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--gold-dark)]">{item}</p>
-              <p className="mt-2 font-serif text-3xl text-[var(--navy)]">{counts[item] || 0}</p>
-            </div>
-          ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:col-span-4">
+            {statusOptions.map((item) => (
+              <div key={item} className="rounded-[1.1rem] border border-[var(--border)] bg-[var(--sand)] px-4 py-3">
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[var(--gold-dark)]">{item}</p>
+                <p className="mt-1 md:mt-2 font-serif text-2xl md:text-3xl text-[var(--navy)]">{counts[item] || 0}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {status ? <div className={`mt-5 ${feedbackClassName}`}>{status.message}</div> : null}

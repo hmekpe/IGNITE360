@@ -94,7 +94,7 @@ export default function AdminPasswordPanel({ email }) {
         </div>
 
         <div className="md:col-span-2">
-          <button type="submit" disabled={saving} className="btn-secondary">
+          <button type="submit" disabled={saving} className="btn-secondary w-full md:w-auto">
             {saving ? 'Saving...' : 'Save new password'}
           </button>
         </div>

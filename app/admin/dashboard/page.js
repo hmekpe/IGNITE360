@@ -23,7 +23,7 @@ export default async function AdminDashboardPage() {
               keeps the workflow recognition-based instead of memory-based.
             </p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="flex flex-wrap gap-3">
             <Link href="/admin/dashboard/posts" className="action-chip">Add post</Link>
             <Link href="/admin/dashboard/programs" className="action-chip">Add program</Link>
             <Link href="/admin/dashboard/team" className="action-chip">Add team member</Link>
@@ -38,10 +38,10 @@ export default async function AdminDashboardPage() {
           ['Team members', summary.team],
           ['Applications', summary.applications],
         ].map(([label, value]) => (
-          <div key={label} className="surface-card p-5">
-            <p className="text-sm uppercase tracking-[0.28em] text-[var(--gold-dark)]">{label}</p>
-            <p className="mt-4 font-serif text-5xl text-[var(--navy)]">{value}</p>
-            <p className="mt-3 text-sm leading-6 text-[var(--text-muted)]">{metricDescriptions[label]}</p>
+          <div key={label} className="surface-card p-4 md:p-5">
+            <p className="text-xs md:text-sm uppercase tracking-[0.22em] text-[var(--gold-dark)]">{label}</p>
+            <p className="mt-3 md:mt-4 font-serif text-3xl md:text-4xl text-[var(--navy)]">{value}</p>
+            <p className="mt-2 md:mt-3 text-sm leading-6 text-[var(--text-muted)]">{metricDescriptions[label]}</p>
           </div>
         ))}
       </div>

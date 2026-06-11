@@ -12,7 +12,7 @@ export default async function ApplyPage() {
   return (
     <div className="section-shell">
       <div className="site-container grid gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
-        <Reveal className="surface-card sticky top-28 overflow-hidden bg-[linear-gradient(160deg,#0d1f3c_0%,#173468_100%)] p-8 text-white shadow-2xl">
+        <Reveal className="surface-card xl:sticky xl:top-28 overflow-hidden bg-[linear-gradient(160deg,#0d1f3c_0%,#173468_100%)] p-8 text-white shadow-2xl">
           <p className="section-tag text-[var(--gold-light)]">Application Flow</p>
           <h1 className="mt-4 text-5xl text-white">Start your Ignite360 journey.</h1>
           <p className="mt-5 text-lg leading-8 text-white/74">
